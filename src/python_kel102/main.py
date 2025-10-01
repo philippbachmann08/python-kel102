@@ -4,7 +4,7 @@ import argparse
 from kel102 import KEL102, KEL102Mode
 
 def main(port:str)-> None:
-    kel102 = KEL102(port="/dev/ttyUSB0", baud_rate=115200, timeout=1)
+    kel102 = KEL102(port=port, baud_rate=115200, timeout=1)
 
     kel102.get_current_mode()
 

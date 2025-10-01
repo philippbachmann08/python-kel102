@@ -37,14 +37,14 @@ class KEL102:
 
     def write_and_receive(self, command, receive_delay: float = 0.1) -> Optional[str]:
         _command = f"{command}\r".encode()
-        logging.debug(f"Sending command {command}")
+        logging.debug(f"Sending command '{command}'")
         self.serial_device.write(_command)
         time.sleep(receive_delay)
         response = ''
         if self.serial_device.in_waiting:
             response += self.serial_device.read(self.serial_device.in_waiting).decode()
         if response != '':
-            logging.debug(f"Received response {response}")
+            logging.debug(f"Received response '{response}'")
             response = response.lstrip(">").rstrip("\n")
             return response
         return None

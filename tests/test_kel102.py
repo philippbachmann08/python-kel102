@@ -1,13 +1,13 @@
 import pytest
 
-from kel102 import KEL102, KEL102Mode
+from python_kel102.kel102 import KEL102, KEL102Mode
 
 
 @pytest.fixture
 def mocked_serial_device(mocker):
     mocked_serial_device = mocker.Mock()
     mocked_serial = mocker.Mock(return_value=mocked_serial_device)
-    mocker.patch("kel102.Serial", mocked_serial)
+    mocker.patch("python_kel102.kel102.Serial", mocked_serial)
     return mocked_serial_device
 
 

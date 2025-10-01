@@ -24,16 +24,16 @@ def get_mode_unit(mode: KEL102Mode) -> str:
             raise Exception(f"Unknown KEL102Mode {mode}")
 
 class KEL102:
-    def __init__(self, port_name: str, baud_rate: int = 115200, timeout: int=1) -> None:
+    def __init__(self, port: str, baud_rate: int = 115200, timeout: int=1) -> None:
         try:
             self.serial_device = Serial(
-                port=port_name,
+                port=port,
                 baudrate=baud_rate,
                 timeout=timeout
             )
-            logging.info(f"Successfully connected to {port_name} at {baud_rate} baud.")
+            logging.info(f"Successfully connected to {port} at {baud_rate} baud.")
         except SerialException as e:
-            logging.error(f"Error connecting to {port_name}: {e}")
+            logging.error(f"Error connecting to {port}: {e}")
 
     def write_and_receive(self, command, receive_delay: float = 0.1) -> Optional[str]:
         _command = f"{command}\r".encode()

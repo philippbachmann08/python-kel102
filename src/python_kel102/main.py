@@ -1,15 +1,31 @@
 import logging
 import argparse
 
-from kel102 import KEL102
+from kel102 import KEL102, KEL102Mode
 
 def main(port:str)-> None:
     kel102 = KEL102(port="/dev/ttyUSB0", baud_rate=115200, timeout=1)
 
     kel102.get_current_mode()
+
     kel102.get_load_voltage()
     kel102.get_load_current()
     kel102.get_load_power()
+
+    kel102.get_mode_setting(KEL102Mode.CC)
+    kel102.get_mode_setting(KEL102Mode.CV)
+    kel102.get_mode_setting(KEL102Mode.CR)
+    kel102.get_mode_setting(KEL102Mode.CP)
+
+    kel102.get_mode_setting_min(KEL102Mode.CC)
+    kel102.get_mode_setting_min(KEL102Mode.CV)
+    kel102.get_mode_setting_min(KEL102Mode.CR)
+    kel102.get_mode_setting_min(KEL102Mode.CP)
+
+    kel102.get_mode_setting_max(KEL102Mode.CC)
+    kel102.get_mode_setting_max(KEL102Mode.CV)
+    kel102.get_mode_setting_max(KEL102Mode.CR)
+    kel102.get_mode_setting_max(KEL102Mode.CP)
 
 
 if __name__ == '__main__':

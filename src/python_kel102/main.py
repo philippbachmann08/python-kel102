@@ -29,7 +29,7 @@ def main(port:str)-> None:
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s: %(message)s',
+    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(name)-6s [%(levelname)-6s]: %(message)s',
                         datefmt='%Y-%m-%d %H:%M:%S')
     parser = argparse.ArgumentParser(
         description="Python control library for the KEL-102 electronic load."

@@ -12,3 +12,8 @@ poetry install
 #   Windows: e.g. COM1
 poetry run python3 src/python_kel102/main.py <port-path/name>
 ```
+
+## Run Unit Tests
+```bash
+poetry run pytest
+```
